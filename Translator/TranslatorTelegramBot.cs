@@ -6,10 +6,15 @@ using Telegram.Bot.Types;
 using Telegram.Bot.Types.Enums;
 using Azure;
 using Azure.AI.Translation.Text;
+using Translator.Services;
+using System.Collections.Generic;
+using Newtonsoft.Json.Linq;
+using System.Net.Http;
+using System.Linq;
 
 namespace TranslatorTelegramBot
 {
-    public class TranslatorServiceBot
+    public class TranslatorServiceBot : ITranslatorService
     {
         private readonly TextTranslationClient _client;
 
@@ -42,5 +47,19 @@ namespace TranslatorTelegramBot
                 return $"Error: {ex.Message}";
             }
         }
+
+        public async Task<Dictionary<string, string>> GetSupportedLanguagesAsync()
+        {
+            var client = new HttpClient();
+            var response = await client.GetStringAsync("https://api.cognitive.microsofttranslator.com/languages?api-version=3.0&scope=translation");
+            var json = JObject.Parse(response)["translation"] as JObject;
+
+            return json.Properties()
+                       .ToDictionary(
+                           p => p.Name,                               // напр. "fr"
+                           p => (string)p.Value["name"]);             // напр. "French"
+        }
+
+
     }
 }

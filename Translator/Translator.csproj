@@ -141,8 +141,20 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bot\BotService.cs" />
+    <Compile Include="Handlers\CallbackQueryHandler.cs" />
+    <Compile Include="Handlers\ICommandHandler.cs" />
+    <Compile Include="Handlers\MenuCommandHandler.cs" />
+    <Compile Include="Handlers\SpeechTranslateCommandHandler.cs" />
+    <Compile Include="Handlers\StartCommandHandler.cs" />
+    <Compile Include="Handlers\TranslateCommandHandler.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\EnumerableExtensions.cs" />
+    <Compile Include="Services\ISpeechToTextService.cs" />
+    <Compile Include="Services\ITextToSpeechService.cs" />
+    <Compile Include="Services\ITranslatorService.cs" />
+    <Compile Include="Services\SpeechToSpeechService.cs" />
     <Compile Include="TranslatorService.cs" />
     <Compile Include="TranslatorTelegramBot.cs" />
   </ItemGroup>

@@ -7,7 +7,7 @@ using Newtonsoft.Json.Linq;
 
 public class TranslatorService
 {
-    private static readonly string subscriptionKey = "eUPe4UeYkikS80aBOPeTJFIPFj6jdy0VXTb4szofuB58JCUoEJA6JQQJ99BFAChHRaEXJ3w3AAAbACOG2BUf";
+    private static readonly string subscriptionKey = "";
     private static readonly string endpoint = "https://api.cognitive.microsofttranslator.com";
     private static readonly string location = "norwayeast";
     private string translatorKey;
