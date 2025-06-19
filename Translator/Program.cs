@@ -13,8 +13,7 @@ using TranslatorTelegramBot;
 internal class Program
 {
     // Replace with your credentials
-    
-
+   
     private static ITelegramBotClient botClient;
     private static TranslatorServiceBot translatorService;
 
